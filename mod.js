@@ -9,7 +9,7 @@ export const generate = async () => {
   return keygen
 }
 
-keys.keypair = async () => {
+ed25519.keypair = async () => {
   const keypair = await localStorage.getItem('keypair')
   if (!keypair) {
     const keypair = await generate()
@@ -20,16 +20,16 @@ keys.keypair = async () => {
   }
 }
 
-keys.pubkey = async () => {
+ed25519.pubkey = async () => {
   const keypair = await keys.keypair()
   return keypair.substring(0, 44)
 }
 
-keys.privkey = async () => {
+ed25519.privkey = async () => {
   const keypair = await keys.keypair()
   return keypair.substring(44)
 }
 
-keys.deletekey = async () => {
+ed25519.deletekey = async () => {
   localStorage.removeItem('keypair')
 }
