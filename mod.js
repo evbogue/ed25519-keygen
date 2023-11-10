@@ -21,12 +21,12 @@ ed25519.keypair = async () => {
 }
 
 ed25519.pubkey = async () => {
-  const keypair = await keys.keypair()
+  const keypair = await ed25519.keypair()
   return keypair.substring(0, 44)
 }
 
 ed25519.privkey = async () => {
-  const keypair = await keys.keypair()
+  const keypair = await ed25519.keypair()
   return keypair.substring(44)
 }
 
